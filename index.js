@@ -104,8 +104,21 @@ console.log(lastName); */
 // string properties & methods
 
 // if statements
- 
+ let age ;
+ document.getElementById("myButton").onclick = function(){
+    age = document.getElementById("ageText").value;
+   
 
+    if(age > 16){
+        document.getElementById("answer").innerHTML = "You can make love! Enjoy it! ";
+     }
+    else{
+        document.getElementById("answer").innerHTML = "You are too young to make love!";
+     }
+    
+ }
+
+ 
 
 
 
