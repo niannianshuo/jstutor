@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="myButton">roll-call</button>
+    <h1 id="num"></h1>
+    <label id="addLabel">add</label>
+    <input type="text" id="addStudent"></input>
+    <button id="submitButton">submit</button>
+
+    </h1>
+
+    <script>
+        // array shuffle function = random the elements in the array
+        // write a roll-call program with this using my class 
+        let students = ["ZTX","TZH","WCX","CXJ","ZZA","ZQH","MNN","CZX","CMJ","ZT","LS","SX","XCJ","FYY","HZY"];
+
+        function shuffle(students){
+            let amount = students.length;
+
+            while(amount != 0){
+                let randomIndex = Math.floor(Math.random() * amount);
+                amount -= 1;
+                // generate a random number between 0 ~ (whatever you set)
+
+                let temp = students[amount];
+                students[amount] = students[randomIndex];
+                students[randomIndex] = temp;
+            }
+            return students;
+        }
+
+        document.getElementById("myButton").onclick = function(){
+            document.getElementById("num").innerHTML = shuffle(students)[0];
+        }
+
+        document.getElementById("submitButton").onclick = () => {
+            let addStudentName = document.getElementById("addStudent").value;
+
+            if(students.indexOf(addStudentName) == -1){
+                students.push(addStudentName);
+                students.forEach(student => console.log(student));
+            }
+        }
+    </script>
+</body>
+
+</html>

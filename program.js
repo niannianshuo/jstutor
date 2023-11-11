@@ -48,7 +48,7 @@ document.getElementById("increase").onclick = function(){
 
 // random number generator
 // generate random number between 0 ~ 100
-let x = Math.floor(Math.random() * 100);
+/* let x = Math.floor(Math.random() * 100);
 let y = Math.floor(Math.random() * 100);
 let z = Math.floor(Math.random() * 100);
 // if code write here ,these numbers won't be changed when rolling again
@@ -67,6 +67,52 @@ document.getElementById("randomButton").onclick = function(){
     document.getElementById("yrandom").innerHTML = y;
     document.getElementById("zrandom").innerHTML = z;
 
+} */
+
+
+// number guessing game
+/* let answer = Math.floor(Math.random()*10 + 1);
+let guesses = 0;
+
+document.getElementById("submitButton").onclick = function(){
+    let guess = document.getElementById("guessNumber").value;
+    guesses += 1;
+
+    if(guess == answer){
+        alert(`Yes! You are right!The number is ${answer}.And you have guessed ${guesses} times`);
+    }
+    else if(guess < answer){
+        alert(`No~You are too small!`);
+    }
+    else if(guess > answer){
+        alert(`No~You are too big!`);
+    }
+} */
+
+// temperature conversion program
+document.getElementById("submitButton").onclick = function(){
+    let temp = document.getElementById("tempInput").value;
+
+    if(document.getElementById("cTempSelect").checked){
+        temp = toCelcius(temp);
+        document.getElementById("resultBox").innerHTML = temp + "°C";
+    }
+    else if(document.getElementById("fTempSelect").checked){
+        temp = Fahrenheit(temp);
+        document.getElementById("resultBox").innerHTML = `${temp}°F`;
+    }
+    else{
+        document.getElementById("resultBox").innerHTML = "Please select a format!";
+    }
+
+    console.log(temp);
 }
 
+function toCelcius(temp){
+    return (temp -32) / 1.8;
+}
+
+function toFahrenheit(temp){
+    return temp * 1.8 +32;
+}
 
